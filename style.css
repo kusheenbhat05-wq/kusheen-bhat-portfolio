@@ -1,26 +1,24 @@
-/* ================================
-   KUSHEEN BHAT — PORTFOLIO
-   Premium Dark / Green Theme
-================================ */
+/* =========================================================
+   KUSHEEN BHAT — PREMIUM PORTFOLIO
+   Dark / Neon Green / Editorial
+   ========================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    --bg: #07100d;
-    --bg-light: #0b1713;
-    --card: #0e1d17;
-    --green: #a8ff78;
-    --green-dark: #63c84b;
-    --white: #f4f7f5;
-    --muted: #8c9a93;
-    --border: rgba(168, 255, 120, 0.15);
+    --bg: #071008;
+    --bg-soft: #0b150d;
+    --green: #9cff38;
+    --green-dark: #5d9f20;
+    --white: #f5f7f2;
+    --muted: #8d968d;
+    --line: rgba(156, 255, 56, 0.18);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 html {
@@ -29,13 +27,13 @@ html {
 
 body {
     background:
-        radial-gradient(circle at 80% 10%, rgba(104, 255, 122, 0.08), transparent 25%),
-        radial-gradient(circle at 10% 50%, rgba(104, 255, 122, 0.05), transparent 30%),
+        radial-gradient(circle at 70% 15%, rgba(125, 255, 40, 0.08), transparent 28%),
+        radial-gradient(circle at 10% 60%, rgba(125, 255, 40, 0.04), transparent 25%),
         var(--bg);
+
     color: var(--white);
     font-family: "Inter", sans-serif;
     overflow-x: hidden;
-    line-height: 1.6;
 }
 
 /* subtle grid */
@@ -44,89 +42,112 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    pointer-events: none;
-    opacity: 0.18;
+
     background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-    background-size: 50px 50px;
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+
+    background-size: 70px 70px;
+    pointer-events: none;
     z-index: -1;
 }
 
-/* ================================
+/* =========================================================
    NAVBAR
-================================ */
+   ========================================================= */
 
 nav,
-.navbar {
-    width: 90%;
-    max-width: 1200px;
-    margin: 25px auto;
-    padding: 15px 20px;
+header {
+    position: relative;
+    z-index: 10;
+}
+
+nav {
+    height: 90px;
+    padding: 0 6vw;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    border: 1px solid var(--border);
-    border-radius: 50px;
-
-    background: rgba(7, 16, 13, 0.7);
-    backdrop-filter: blur(18px);
-
-    position: sticky;
-    top: 20px;
-    z-index: 1000;
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(14px);
 }
 
-nav a,
-.navbar a {
+nav a {
     color: var(--muted);
     text-decoration: none;
-    margin: 0 12px;
-    font-size: 14px;
-    transition: .3s ease;
+    margin-left: 35px;
+
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    transition: 0.3s ease;
 }
 
-nav a:hover,
-.navbar a:hover {
+nav a:hover {
     color: var(--green);
 }
 
-/* ================================
+.logo {
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+/* =========================================================
    HERO
-================================ */
+   ========================================================= */
 
 .hero {
-    min-height: 90vh;
-    max-width: 1200px;
-    margin: auto;
+    min-height: 100vh;
+    padding: 100px 7vw;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 70px;
+    gap: 80px;
 
-    padding: 100px 30px;
+    position: relative;
+}
+
+.hero::after {
+    content: "01";
+    position: absolute;
+    right: 7vw;
+    bottom: 40px;
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    color: var(--green);
+    letter-spacing: 3px;
 }
 
 .hero-content {
-    max-width: 720px;
+    max-width: 850px;
 }
 
-.eyebrow {
-    font-family: "DM Mono", monospace;
+.hero .eyebrow,
+.hero-content .eyebrow {
     color: var(--green);
-    font-size: 14px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
+
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    margin-bottom: 25px;
 }
 
 .hero h1 {
-    font-size: clamp(55px, 8vw, 110px);
-    line-height: .92;
-    letter-spacing: -6px;
+    font-size: clamp(65px, 10vw, 150px);
+    line-height: 0.82;
+    letter-spacing: -8px;
     font-weight: 800;
+
+    margin-bottom: 35px;
 }
 
 .hero h1 span {
@@ -134,429 +155,497 @@ nav a:hover,
 }
 
 .hero p {
-    max-width: 600px;
-    margin-top: 30px;
-    color: var(--muted);
-    font-size: 18px;
+    max-width: 550px;
+
+    color: #aeb6ae;
+    font-size: 17px;
+    line-height: 1.8;
 }
 
-.hero-buttons {
-    margin-top: 35px;
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    display: inline-block;
-    padding: 13px 24px;
-    border-radius: 40px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: .3s ease;
-}
-
-.btn-primary {
-    background: var(--green);
-    color: #07100d;
-}
-
-.btn-primary:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba(168,255,120,.18);
-}
-
-.btn-outline {
-    border: 1px solid var(--border);
-    color: var(--white);
-}
-
-.btn-outline:hover {
-    border-color: var(--green);
-    color: var(--green);
-}
-
-/* ================================
+/* =========================================================
    PROFILE IMAGE
-================================ */
+   ========================================================= */
 
-.hero-image {
+.profile-image,
+.profile-photo,
+.hero img {
     width: 330px;
-    height: 330px;
-    flex-shrink: 0;
+    height: 430px;
 
-    border-radius: 50%;
-    overflow: hidden;
+    object-fit: cover;
 
-    border: 1px solid rgba(168,255,120,.35);
+    border-radius: 18px;
+
+    border: 1px solid rgba(156, 255, 56, 0.35);
 
     box-shadow:
-        0 0 0 15px rgba(168,255,120,.025),
-        0 0 80px rgba(168,255,120,.12);
+        0 0 0 1px rgba(156,255,56,0.05),
+        0 25px 80px rgba(0,0,0,0.5);
+
+    filter: saturate(0.9) contrast(1.03);
+
+    transition: transform 0.5s ease,
+                box-shadow 0.5s ease;
 }
 
-.hero-image img {
+/* remove ugly circular styling */
+
+.profile-image img,
+.profile-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 18px;
 }
 
-/* ================================
+.profile-image:hover,
+.profile-photo:hover,
+.hero img:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 0 35px rgba(156,255,56,0.12),
+        0 30px 90px rgba(0,0,0,0.65);
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+button,
+.btn,
+a.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 35px;
+    padding: 15px 25px;
+
+    border: 1px solid var(--green);
+    border-radius: 100px;
+
+    background: transparent;
+    color: var(--green);
+
+    text-decoration: none;
+
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover,
+.btn:hover,
+a.button:hover {
+    background: var(--green);
+    color: #071008;
+
+    box-shadow: 0 0 30px rgba(156,255,56,0.2);
+}
+
+/* =========================================================
    SECTIONS
-================================ */
+   ========================================================= */
 
 section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 120px 30px;
-}
+    padding: 150px 7vw;
 
-.section-label {
-    color: var(--green);
-    font-family: "DM Mono", monospace;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 15px;
+    border-top: 1px solid var(--line);
 }
 
 section h2 {
-    font-size: clamp(40px, 6vw, 75px);
-    line-height: 1;
-    letter-spacing: -3px;
-    margin-bottom: 45px;
+    font-size: clamp(45px, 7vw, 100px);
+    line-height: 0.9;
+    letter-spacing: -5px;
+
+    margin-bottom: 70px;
 }
 
-/* ================================
-   ABOUT
-================================ */
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-}
-
-.about-text {
-    color: var(--muted);
-    font-size: 18px;
-}
-
-.about-text strong {
-    color: var(--white);
-}
-
-/* ================================
-   EDUCATION
-================================ */
-
-.timeline {
-    border-left: 1px solid var(--border);
-    padding-left: 35px;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 50px;
-}
-
-.timeline-item::before {
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: var(--green);
-    border-radius: 50%;
-    left: -41px;
-    top: 8px;
-    box-shadow: 0 0 20px rgba(168,255,120,.5);
-}
-
-.timeline-year {
-    font-family: "DM Mono", monospace;
+section h2 span {
     color: var(--green);
-    font-size: 13px;
 }
 
-.timeline h3 {
-    font-size: 25px;
-    margin: 8px 0;
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: 100px;
 }
 
-.timeline p {
+.about-number {
+    color: var(--green);
+
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.about p {
+    color: #aab2aa;
+
+    font-size: 20px;
+    line-height: 1.9;
+
+    max-width: 800px;
+}
+
+/* =========================================================
+   EXPERIENCE / EDUCATION
+   ========================================================= */
+
+.experience-item,
+.education-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+
+    padding: 35px 0;
+
+    border-top: 1px solid var(--line);
+}
+
+.experience-item:last-child,
+.education-item:last-child {
+    border-bottom: 1px solid var(--line);
+}
+
+.experience-item .date,
+.education-item .date {
+    color: var(--green);
+
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+}
+
+.experience-item h3,
+.education-item h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.experience-item p,
+.education-item p {
     color: var(--muted);
+    line-height: 1.7;
 }
 
-/* ================================
+/* =========================================================
    SKILLS
-================================ */
+   ========================================================= */
 
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 1px solid var(--line);
 }
 
 .skill {
-    padding: 12px 18px;
-    border: 1px solid var(--border);
-    border-radius: 30px;
+    min-height: 180px;
 
-    color: #c9d4ce;
-    background: rgba(168,255,120,.025);
+    padding: 35px;
 
-    transition: .3s ease;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition: 0.4s ease;
 }
 
 .skill:hover {
-    color: #07100d;
-    background: var(--green);
-    transform: translateY(-4px);
+    background: rgba(156,255,56,0.04);
 }
 
-/* ================================
+.skill span {
+    color: var(--green);
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+}
+
+.skill h3 {
+    font-size: 22px;
+}
+
+/* =========================================================
    PROJECTS
-================================ */
+   ========================================================= */
 
 .projects {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    gap: 30px;
 }
 
 .project-card {
-    min-height: 330px;
-    padding: 35px;
+    position: relative;
 
-    border: 1px solid var(--border);
-    border-radius: 25px;
+    min-height: 300px;
+
+    padding: 45px;
+
+    border: 1px solid var(--line);
+    border-radius: 18px;
 
     background:
         linear-gradient(
-            145deg,
-            rgba(168,255,120,.07),
-            rgba(255,255,255,.015)
+            135deg,
+            rgba(156,255,56,0.045),
+            rgba(255,255,255,0.01)
         );
 
-    position: relative;
     overflow: hidden;
 
-    transition: .4s ease;
+    transition: 0.5s ease;
 }
 
-.project-card::after {
-    content: "↗";
+.project-card::before {
+    content: "";
+
     position: absolute;
-    right: 30px;
-    top: 25px;
 
-    font-size: 30px;
-    color: var(--green);
+    width: 250px;
+    height: 250px;
 
-    transition: .3s;
+    right: -100px;
+    top: -100px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    filter: blur(100px);
+    opacity: 0.05;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(168,255,120,.4);
-    box-shadow: 0 25px 70px rgba(0,0,0,.35);
+    transform: translateY(-8px);
+
+    border-color: rgba(156,255,56,0.5);
 }
 
-.project-card:hover::after {
-    transform: translate(5px,-5px);
-}
-
-.project-number {
-    font-family: "DM Mono", monospace;
+.project-card .number {
     color: var(--green);
-    font-size: 13px;
+
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
 }
 
 .project-card h3 {
-    margin-top: 55px;
-    font-size: 30px;
+    margin-top: 80px;
+
+    font-size: clamp(30px, 5vw, 65px);
+    letter-spacing: -3px;
 }
 
 .project-card p {
+    max-width: 600px;
+
     margin-top: 15px;
+
     color: var(--muted);
+    line-height: 1.7;
 }
 
-/* ================================
-   EXPERIENCE
-================================ */
-
-.experience-card {
-    padding: 40px;
-    border: 1px solid var(--border);
-    border-radius: 25px;
-    background: var(--card);
-}
-
-.experience-card h3 {
-    font-size: 30px;
-}
-
-.experience-card .company {
-    color: var(--green);
-    margin: 8px 0 20px;
-}
-
-.experience-card p {
-    color: var(--muted);
-}
-
-/* ================================
-   CERTIFICATIONS
-================================ */
-
-.certifications {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.certificate {
-    padding: 25px;
-
-    border: 1px solid var(--border);
-    border-radius: 18px;
-
-    background: rgba(255,255,255,.02);
-}
-
-.certificate h3 {
-    margin-bottom: 5px;
-}
-
-.certificate p {
-    color: var(--muted);
-}
-
-/* ================================
+/* =========================================================
    CONTACT
-================================ */
+   ========================================================= */
 
 .contact {
-    min-height: 70vh;
+    min-height: 80vh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .contact h2 {
-    max-width: 800px;
+    margin-bottom: 30px;
 }
 
 .contact-email {
     color: var(--green);
-    font-size: clamp(25px, 4vw, 50px);
+
+    font-size: clamp(25px, 5vw, 70px);
+
     text-decoration: none;
+
     word-break: break-word;
+
+    transition: 0.3s ease;
 }
 
 .contact-email:hover {
-    text-decoration: underline;
+    color: var(--white);
 }
 
-/* ================================
+/* =========================================================
    FOOTER
-================================ */
+   ========================================================= */
 
 footer {
-    border-top: 1px solid var(--border);
-    padding: 30px;
-    text-align: center;
+    padding: 40px 7vw;
+
+    border-top: 1px solid var(--line);
+
+    display: flex;
+    justify-content: space-between;
+
     color: var(--muted);
-    font-size: 13px;
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
 }
 
 footer span {
     color: var(--green);
 }
 
-/* ================================
-   SCROLL ANIMATION
-================================ */
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
 
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 1s ease;
+::-webkit-scrollbar {
+    width: 7px;
 }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+::-webkit-scrollbar-track {
+    background: var(--bg);
 }
 
-/* ================================
-   RESPONSIVE
-================================ */
+::-webkit-scrollbar-thumb {
+    background: #30452b;
+    border-radius: 20px;
+}
 
-@media (max-width: 850px) {
+::-webkit-scrollbar-thumb:hover {
+    background: var(--green);
+}
 
-    nav,
-    .navbar {
-        width: 94%;
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+    background: var(--green);
+    color: #071008;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        padding: 0 5vw;
     }
 
-    nav a,
-    .navbar a {
-        margin: 0 5px;
-        font-size: 12px;
+    nav a {
+        margin-left: 15px;
+        font-size: 9px;
     }
 
     .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding-top: 70px;
-    }
+        min-height: auto;
 
-    .hero-buttons {
-        justify-content: center;
-    }
+        padding: 100px 6vw;
 
-    .hero-image {
-        width: 260px;
-        height: 260px;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 60px;
     }
 
     .hero h1 {
-        letter-spacing: -4px;
+        font-size: clamp(55px, 17vw, 100px);
+        letter-spacing: -5px;
     }
 
-    .about-grid,
-    .projects,
-    .certifications {
-        grid-template-columns: 1fr;
+    .hero p {
+        font-size: 15px;
+    }
+
+    .hero img,
+    .profile-image,
+    .profile-photo {
+        width: min(100%, 360px);
+        height: 450px;
     }
 
     section {
-        padding: 90px 22px;
+        padding: 100px 6vw;
+    }
+
+    section h2 {
+        letter-spacing: -3px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill {
+        border-right: none;
+    }
+
+    .experience-item,
+    .education-item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
     }
 }
 
 @media (max-width: 500px) {
 
+    nav {
+        height: 70px;
+    }
+
+    nav a {
+        margin-left: 8px;
+        font-size: 8px;
+    }
+
+    .logo {
+        font-size: 12px;
+    }
+
     .hero {
-        min-height: auto;
         padding-top: 70px;
     }
 
-    .hero h1 {
-        font-size: 58px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    section h2 {
-        font-size: 48px;
+    .hero img,
+    .profile-image,
+    .profile-photo {
+        width: 100%;
+        height: 390px;
     }
 
     .project-card {
-        min-height: 280px;
+        padding: 30px;
+        min-height: 250px;
+    }
+
+    .project-card h3 {
+        margin-top: 55px;
     }
 }
