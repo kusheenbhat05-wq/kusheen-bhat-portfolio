@@ -817,3 +817,89 @@ footer {
         font-size: 27px;
     }
 }
+/* =========================================
+   HERO POSITION FIX
+   Keep hero text on the LEFT
+========================================= */
+
+.hero {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    min-height: calc(100vh - 80px);
+    position: relative;
+    padding: 100px 7vw 80px !important;
+}
+
+.hero-content {
+    width: 58% !important;
+    max-width: 850px !important;
+    margin: 0 !important;
+    text-align: left !important;
+    position: relative;
+    z-index: 5;
+}
+
+/* Big heading */
+.hero h1 {
+    text-align: left !important;
+    margin-left: 0 !important;
+}
+
+/* Internship label */
+.hero .eyebrow,
+.hero .availability,
+.hero .hero-label {
+    text-align: left !important;
+}
+
+/* Description */
+.hero p {
+    text-align: left !important;
+}
+
+/* Buttons */
+.hero .hero-buttons,
+.hero .buttons,
+.hero .cta-group {
+    justify-content: flex-start !important;
+}
+
+/* Right-side visual/photo area */
+.hero-visual {
+    position: absolute !important;
+    right: 7vw !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 2;
+}
+
+/* Don't let JS parallax push it sideways */
+@media (min-width: 851px) {
+    .hero-visual {
+        right: 7vw !important;
+        left: auto !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 850px) {
+
+    .hero {
+        display: block !important;
+        padding: 90px 6vw 60px !important;
+    }
+
+    .hero-content {
+        width: 100% !important;
+        max-width: none !important;
+    }
+
+    .hero-visual {
+        position: relative !important;
+        right: auto !important;
+        top: auto !important;
+        transform: none !important;
+        margin: 50px auto 0 !important;
+    }
+}
