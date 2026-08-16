@@ -1,45 +1,77 @@
 /* =========================================================
    KUSHEEN BHAT — PORTFOLIO JS
-   Interactive • Smooth • Cinematic
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =========================================
-       PAGE LOADED
-    ========================================= */
+    /* =====================================================
+       CUSTOM CURSOR
+    ===================================================== */
 
-    document.body.classList.add("loaded");
+    const cursor = document.querySelector(".cursor");
+    const cursorDot = document.querySelector(".cursor-dot");
+
+    if (cursor && cursorDot && window.innerWidth > 700) {
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        let cursorX = 0;
+        let cursorY = 0;
+
+        document.addEventListener("mousemove", (e) => {
+
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            cursorDot.style.left = `${mouseX}px`;
+            cursorDot.style.top = `${mouseY}px`;
+
+        });
+
+        function animateCursor() {
+
+            cursorX += (mouseX - cursorX) * 0.12;
+            cursorY += (mouseY - cursorY) * 0.12;
+
+            cursor.style.left = `${cursorX}px`;
+            cursor.style.top = `${cursorY}px`;
+
+            requestAnimationFrame(animateCursor);
+        }
+
+        animateCursor();
 
 
-    /* =========================================
-       CURRENT YEAR
-    ========================================= */
+        /* Cursor grows on links */
 
-    const year = document.querySelector("#year");
+        document.querySelectorAll("a").forEach((link) => {
 
-    if (year) {
-        year.textContent = new Date().getFullYear();
+            link.addEventListener("mouseenter", () => {
+
+                cursor.style.width = "55px";
+                cursor.style.height = "55px";
+
+            });
+
+            link.addEventListener("mouseleave", () => {
+
+                cursor.style.width = "32px";
+                cursor.style.height = "32px";
+
+            });
+
+        });
     }
 
 
-    /* =========================================
+    /* =====================================================
        SCROLL REVEAL
-    ========================================= */
+    ===================================================== */
 
-    const revealElements = document.querySelectorAll(`
-        section,
-        .project-card,
-        .skill-card,
-        .timeline-item,
-        .experience-card,
-        .certificate,
-        .about-facts > div
-    `);
-
-    revealElements.forEach((element) => {
-        element.classList.add("reveal");
-    });
+    const revealItems = document.querySelectorAll(
+        ".section, .skill-card, .project, .timeline-item, .statement-section, .contact-section"
+    );
 
     const revealObserver = new IntersectionObserver(
         (entries, observer) => {
@@ -48,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (entry.isIntersecting) {
 
-                    entry.target.classList.add("active");
+                    entry.target.classList.add("reveal", "active");
 
                     observer.unobserve(entry.target);
                 }
@@ -61,63 +93,95 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
-    revealElements.forEach((element) => {
-        revealObserver.observe(element);
+    revealItems.forEach((item) => {
+
+        item.classList.add("reveal");
+
+        revealObserver.observe(item);
+
     });
 
 
-    /* =========================================
-       NAVBAR SCROLL EFFECT
-    ========================================= */
+    /* =====================================================
+       NAVBAR ACTIVE SECTION
+    ===================================================== */
 
-    const navbar = document.querySelector(".navbar, nav");
+    const sections = document.querySelectorAll(
+        "section[id]"
+    );
 
-    function updateNavbar() {
+    const navLinks = document.querySelectorAll(
+        ".nav-links a"
+    );
 
-        if (!navbar) return;
+    const sectionObserver = new IntersectionObserver(
+        (entries) => {
 
-        if (window.scrollY > 70) {
+            entries.forEach((entry) => {
 
-            navbar.style.background =
-                "rgba(7,16,13,.92)";
+                if (entry.isIntersecting) {
 
-            navbar.style.boxShadow =
-                "0 15px 50px rgba(0,0,0,.3)";
+                    const currentId =
+                        entry.target.getAttribute("id");
 
-        } else {
+                    navLinks.forEach((link) => {
 
-            navbar.style.background =
-                "rgba(7,16,13,.58)";
+                        link.style.color = "";
 
-            navbar.style.boxShadow =
-                "none";
+                        if (
+                            link.getAttribute("href") ===
+                            `#${currentId}`
+                        ) {
+
+                            link.style.color =
+                                "var(--green)";
+                        }
+
+                    });
+
+                }
+
+            });
+
+        },
+        {
+            rootMargin: "-35% 0px -55% 0px"
         }
-    }
+    );
 
-    window.addEventListener("scroll", updateNavbar);
+    sections.forEach((section) => {
 
-    updateNavbar();
+        sectionObserver.observe(section);
+
+    });
 
 
-    /* =========================================
-       SMOOTH ANCHOR NAVIGATION
-    ========================================= */
+    /* =====================================================
+       SMOOTH SCROLL
+    ===================================================== */
 
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    document.querySelectorAll(
+        'a[href^="#"]'
+    ).forEach((link) => {
 
-        link.addEventListener("click", function (event) {
+        link.addEventListener("click", (event) => {
 
             const targetId =
-                this.getAttribute("href");
+                link.getAttribute("href");
 
-            if (!targetId || targetId === "#") {
+            if (
+                !targetId ||
+                targetId === "#"
+            ) {
                 return;
             }
 
             const target =
                 document.querySelector(targetId);
 
-            if (!target) return;
+            if (!target) {
+                return;
+            }
 
             event.preventDefault();
 
@@ -131,141 +195,120 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* =========================================
-       MOUSE FOLLOW GLOW
-    ========================================= */
+    /* =====================================================
+       PHOTO PARALLAX
+    ===================================================== */
 
-    const glow = document.createElement("div");
+    const photo =
+        document.querySelector(".photo-frame");
 
-    glow.className = "cursor-glow";
+    const hero =
+        document.querySelector(".hero");
 
-    glow.style.cssText = `
-        position: fixed;
-        width: 320px;
-        height: 320px;
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: -1;
-        transform: translate(-50%, -50%);
-        background:
-            radial-gradient(
-                circle,
-                rgba(168,255,62,.10),
-                rgba(168,255,62,.035) 35%,
-                transparent 70%
-            );
-        transition:
-            left .15s ease-out,
-            top .15s ease-out;
-    `;
+    if (
+        photo &&
+        hero &&
+        window.innerWidth > 900
+    ) {
 
-    document.body.appendChild(glow);
+        hero.addEventListener(
+            "mousemove",
+            (event) => {
+
+                const rect =
+                    hero.getBoundingClientRect();
+
+                const x =
+                    (event.clientX - rect.left) /
+                    rect.width -
+                    0.5;
+
+                const y =
+                    (event.clientY - rect.top) /
+                    rect.height -
+                    0.5;
+
+                photo.style.transform =
+                    `
+                    translate(
+                        ${x * 8}px,
+                        ${y * 8}px
+                    )
+                    `;
+
+            }
+        );
+
+        hero.addEventListener(
+            "mouseleave",
+            () => {
+
+                photo.style.transform =
+                    "translate(0, 0)";
+
+            }
+        );
+    }
 
 
-    window.addEventListener("mousemove", (event) => {
+    /* =====================================================
+       PROJECT HOVER
+    ===================================================== */
 
-        glow.style.left =
-            `${event.clientX}px`;
+    const projects =
+        document.querySelectorAll(".project");
 
-        glow.style.top =
-            `${event.clientY}px`;
+    projects.forEach((project) => {
+
+        project.addEventListener(
+            "mouseenter",
+            () => {
+
+                projects.forEach((other) => {
+
+                    if (other !== project) {
+
+                        other.style.opacity = "0.45";
+
+                    }
+
+                });
+
+            }
+        );
+
+        project.addEventListener(
+            "mouseleave",
+            () => {
+
+                projects.forEach((other) => {
+
+                    other.style.opacity = "1";
+
+                });
+
+            }
+        );
 
     });
 
 
-    /* =========================================
-       TYPING EFFECT
-    ========================================= */
+    /* =====================================================
+       SKILL CARD TILT
+    ===================================================== */
 
-    const typingElement =
-        document.querySelector(".typing");
+    const skillCards =
+        document.querySelectorAll(".skill-card");
 
-    if (typingElement) {
-
-        const words = [
-            "Frontend Developer",
-            "Software Developer",
-            "Creative Developer",
-            "Problem Solver",
-            "Computer Science Student"
-        ];
-
-        let wordIndex = 0;
-        let charIndex = 0;
-        let deleting = false;
-
-        function typeText() {
-
-            const currentWord =
-                words[wordIndex];
-
-            if (!deleting) {
-
-                typingElement.textContent =
-                    currentWord.substring(
-                        0,
-                        charIndex + 1
-                    );
-
-                charIndex++;
-
-                if (
-                    charIndex ===
-                    currentWord.length
-                ) {
-
-                    deleting = true;
-
-                    setTimeout(
-                        typeText,
-                        1300
-                    );
-
-                    return;
-                }
-
-            } else {
-
-                typingElement.textContent =
-                    currentWord.substring(
-                        0,
-                        charIndex - 1
-                    );
-
-                charIndex--;
-
-                if (charIndex === 0) {
-
-                    deleting = false;
-
-                    wordIndex =
-                        (wordIndex + 1) %
-                        words.length;
-                }
-            }
-
-            setTimeout(
-                typeText,
-                deleting ? 40 : 75
-            );
-        }
-
-        typeText();
-    }
-
-
-    /* =========================================
-       PROJECT CARD 3D TILT
-    ========================================= */
-
-    const projectCards =
-        document.querySelectorAll(".project-card");
-
-    projectCards.forEach((card) => {
+    skillCards.forEach((card) => {
 
         card.addEventListener(
             "mousemove",
             (event) => {
+
+                if (window.innerWidth < 800) {
+                    return;
+                }
 
                 const rect =
                     card.getBoundingClientRect();
@@ -283,279 +326,194 @@ document.addEventListener("DOMContentLoaded", () => {
                     rect.height / 2;
 
                 const rotateX =
-                    ((y - centerY) /
-                        centerY) * -2.5;
+                    ((y - centerY) / centerY) * -2;
 
                 const rotateY =
-                    ((x - centerX) /
-                        centerX) * 2.5;
+                    ((x - centerX) / centerX) * 2;
 
                 card.style.transform =
                     `
-                    perspective(1000px)
+                    perspective(800px)
                     rotateX(${rotateX}deg)
                     rotateY(${rotateY}deg)
-                    translateY(-7px)
+                    translateY(-6px)
                     `;
+
             }
         );
-
 
         card.addEventListener(
             "mouseleave",
             () => {
 
                 card.style.transform =
-                    `
-                    perspective(1000px)
-                    rotateX(0deg)
-                    rotateY(0deg)
-                    translateY(0)
-                    `;
+                    "translateY(0)";
+
             }
         );
 
     });
 
 
-    /* =========================================
-       MAGNETIC BUTTONS
-    ========================================= */
+    /* =====================================================
+       NUMBER COUNTER
+    ===================================================== */
 
-    const buttons =
-        document.querySelectorAll(
-            ".primary-btn, .secondary-btn, .nav-cta, .btn, .project-link"
-        );
+    const statusDot =
+        document.querySelector(".status-dot");
 
-    buttons.forEach((button) => {
+    if (statusDot) {
 
-        button.addEventListener(
-            "mousemove",
-            (event) => {
+        statusDot.addEventListener(
+            "click",
+            () => {
 
-                const rect =
-                    button.getBoundingClientRect();
+                statusDot.style.transform =
+                    "scale(1.5)";
 
-                const x =
-                    event.clientX - rect.left;
+                setTimeout(() => {
 
-                const y =
-                    event.clientY - rect.top;
+                    statusDot.style.transform =
+                        "";
 
-                const moveX =
-                    (x - rect.width / 2) * 0.12;
+                }, 300);
 
-                const moveY =
-                    (y - rect.height / 2) * 0.12;
-
-                button.style.transform =
-                    `translate(${moveX}px, ${moveY}px)`;
             }
         );
 
+    }
 
-        button.addEventListener(
+
+    /* =====================================================
+       MARQUEE PAUSE
+    ===================================================== */
+
+    const marquee =
+        document.querySelector(".marquee");
+
+    const marqueeTrack =
+        document.querySelector(".marquee-track");
+
+    if (marquee && marqueeTrack) {
+
+        marquee.addEventListener(
+            "mouseenter",
+            () => {
+
+                marqueeTrack.style.animationPlayState =
+                    "paused";
+
+            }
+        );
+
+        marquee.addEventListener(
             "mouseleave",
             () => {
 
-                button.style.transform =
-                    "translate(0, 0)";
+                marqueeTrack.style.animationPlayState =
+                    "running";
+
             }
         );
 
-    });
+    }
 
 
-    /* =========================================
-       SCROLL PROGRESS BAR
-    ========================================= */
+    /* =====================================================
+       SCROLL PROGRESS
+    ===================================================== */
 
-    const progressBar =
+    const progress =
         document.createElement("div");
 
-    progressBar.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 3px;
-        width: 0%;
-        background: #a8ff3e;
-        z-index: 99999;
-        box-shadow: 0 0 15px rgba(168,255,62,.7);
-        pointer-events: none;
-    `;
+    progress.style.position = "fixed";
+    progress.style.top = "0";
+    progress.style.left = "0";
+    progress.style.height = "3px";
+    progress.style.width = "0%";
+    progress.style.background = "var(--green)";
+    progress.style.zIndex = "99999";
+    progress.style.pointerEvents = "none";
 
-    document.body.appendChild(progressBar);
-
-
-    function updateScrollProgress() {
-
-        const scrollTop =
-            window.scrollY;
-
-        const pageHeight =
-            document.documentElement.scrollHeight -
-            window.innerHeight;
-
-        const percentage =
-            pageHeight > 0
-                ? (scrollTop / pageHeight) * 100
-                : 0;
-
-        progressBar.style.width =
-            `${percentage}%`;
-    }
+    document.body.appendChild(progress);
 
     window.addEventListener(
         "scroll",
-        updateScrollProgress
+        () => {
+
+            const scrollTop =
+                window.scrollY;
+
+            const documentHeight =
+                document.documentElement.scrollHeight -
+                window.innerHeight;
+
+            const percentage =
+                documentHeight > 0
+                    ? (scrollTop / documentHeight) * 100
+                    : 0;
+
+            progress.style.width =
+                `${percentage}%`;
+
+        },
+        {
+            passive: true
+        }
     );
 
-    updateScrollProgress();
 
+    /* =====================================================
+       IMAGE LOAD EFFECT
+    ===================================================== */
 
-    /* =========================================
-       ACTIVE SECTION
-    ========================================= */
+    const heroImage =
+        document.querySelector(".photo-frame img");
 
-    const sections =
-        document.querySelectorAll("section[id]");
+    if (heroImage) {
 
-    const navLinks =
-        document.querySelectorAll(
-            '.nav-links a[href^="#"]'
-        );
-
-    const sectionObserver =
-        new IntersectionObserver(
-            (entries) => {
-
-                entries.forEach((entry) => {
-
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-                    const id =
-                        entry.target.getAttribute("id");
-
-                    navLinks.forEach((link) => {
-
-                        link.classList.remove("active");
-
-                        if (
-                            link.getAttribute("href") ===
-                            `#${id}`
-                        ) {
-                            link.classList.add("active");
-                        }
-
-                    });
-
-                });
-
-            },
-            {
-                threshold: 0.35
-            }
-        );
-
-    sections.forEach((section) => {
-        sectionObserver.observe(section);
-    });
-
-
-    /* =========================================
-       PARALLAX HERO IMAGE
-    ========================================= */
-
-    const heroVisual =
-        document.querySelector(".hero-visual");
-
-    if (heroVisual) {
-
-        window.addEventListener(
-            "scroll",
+        heroImage.addEventListener(
+            "load",
             () => {
 
-                if (window.innerWidth <= 850) {
-                    return;
-                }
+                heroImage.style.opacity = "1";
 
-                const scroll =
-                    window.scrollY;
-
-                heroVisual.style.transform =
-                    `translateY(${scroll * 0.08}px)`;
             }
         );
-    }
 
+        heroImage.addEventListener(
+            "error",
+            () => {
 
-    /* =========================================
-       RANDOM PROJECT CARD DELAY
-    ========================================= */
+                console.warn(
+                    "Portfolio photo could not be loaded. Make sure the image is named photo.jpg and is in the same folder as index.html."
+                );
 
-    projectCards.forEach(
-        (card, index) => {
-
-            card.style.transitionDelay =
-                `${index * 80}ms`;
-        }
-    );
-
-
-    /* =========================================
-       CURSOR COORDINATES
-       FOR CSS EFFECTS
-    ========================================= */
-
-    window.addEventListener(
-        "mousemove",
-        (event) => {
-
-            document.documentElement.style.setProperty(
-                "--mouse-x",
-                `${event.clientX}px`
-            );
-
-            document.documentElement.style.setProperty(
-                "--mouse-y",
-                `${event.clientY}px`
-            );
-        }
-    );
-
-
-    /* =========================================
-       MOBILE SAFETY
-    ========================================= */
-
-    if (window.innerWidth <= 850) {
-
-        glow.remove();
-
-        projectCards.forEach((card) => {
-
-            card.style.transform = "none";
-
-        });
+            }
+        );
 
     }
 
 
-    /* =========================================
-       CONSOLE MESSAGE
-    ========================================= */
+    /* =====================================================
+       PAGE LOAD
+    ===================================================== */
+
+    document.body.classList.add("loaded");
+
+
+    /* =====================================================
+       CONSOLE
+    ===================================================== */
 
     console.log(
         "%cKUSHEEN BHAT",
-        "font-size:28px;font-weight:900;color:#a8ff3e;"
+        "font-size:24px;font-weight:900;color:#a8ff3e;"
     );
 
     console.log(
-        "%cBuilt with curiosity + code.",
-        "font-size:14px;color:#9da8a1;"
+        "%cPortfolio loaded successfully.",
+        "font-size:12px;color:#9ca89e;"
     );
 
 });
