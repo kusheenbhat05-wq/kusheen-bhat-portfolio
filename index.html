@@ -1,26 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <title>Kusheen Bhat — Computer Science Engineer</title>
+    <title>Kusheen Bhat | Computer Science Engineer</title>
 
     <meta
         name="description"
         content="Kusheen Bhat — Computer Science Engineering student, frontend developer and creative problem solver."
-    >
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet"
     >
 
     <link rel="stylesheet" href="style.css">
@@ -28,183 +19,196 @@
 
 <body>
 
-    <!-- =========================
-         CURSOR
-    ========================== -->
+    <!-- ================= LOADER ================= -->
+
+    <div id="loader">
+        <div class="loader-name">
+            KUSHEEN<span>.</span>
+        </div>
+
+        <div class="loader-line">
+            <div></div>
+        </div>
+    </div>
+
+
+    <!-- ================= CURSOR ================= -->
 
     <div class="cursor"></div>
     <div class="cursor-dot"></div>
 
 
-    <!-- =========================
-         NAVIGATION
-    ========================== -->
+    <!-- ================= NAVBAR ================= -->
 
-    <nav class="navbar">
+    <header class="navbar">
 
         <a href="#home" class="logo">
             KB<span>.</span>
         </a>
 
-        <div class="nav-links">
-
+        <nav class="nav-links">
             <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
-            <a href="#projects">Work</a>
-            <a href="#journey">Journey</a>
+            <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
+        </nav>
 
-        </div>
-
-        <a href="#contact" class="nav-talk">
-            Let's talk ↗
+        <a href="#contact" class="nav-cta">
+            Let's Talk <span>↗</span>
         </a>
 
-    </nav>
+    </header>
 
 
-    <!-- =========================
-         HERO
-    ========================== -->
+    <!-- ================= MAIN ================= -->
 
-    <main id="home">
+    <main>
 
-        <section class="hero">
+
+        <!-- ================= HERO ================= -->
+
+        <section id="home" class="hero">
+
+            <div class="hero-bg-word">
+                ENGINEER
+            </div>
+
 
             <div class="hero-left">
-
-                <div class="eyebrow">
-                    COMPUTER SCIENCE ENGINEERING
-                    <span>•</span>
-                    2023 — 2027
-                </div>
 
                 <div class="availability">
                     <span class="status-dot"></span>
                     OPEN FOR INTERNSHIP
                 </div>
 
+
+                <p class="eyebrow">
+                    COMPUTER SCIENCE ENGINEERING
+                    <span>·</span>
+                    2023 — 2027
+                </p>
+
+
                 <h1>
                     Hi, I'm
-                    <strong>Kusheen.</strong>
+                    <span>Kusheen.</span>
                 </h1>
+
 
                 <h2>
                     I build
-                    <em>digital experiences</em>
+                    <span class="green-text">digital experiences</span>
                     that feel alive.
                 </h2>
 
-                <p class="hero-text">
+
+                <p class="hero-description">
                     A Computer Science Engineering student exploring
                     frontend development, software engineering and
-                    creative technology — turning ideas into things
-                    people can actually use.
+                    creative technology — turning ideas into useful,
+                    interactive experiences.
                 </p>
 
-                <div class="hero-buttons">
 
-                    <a href="#projects" class="btn btn-primary">
-                        Explore my work
-                        <span>↓</span>
-                    </a>
+                <div class="hero-tags">
 
-                    <a href="#about" class="btn btn-secondary">
-                        More about me
-                        <span>↘</span>
-                    </a>
+                    <span>FRONTEND</span>
+                    <span>SOFTWARE</span>
+                    <span>WEB</span>
+                    <span>PROBLEM SOLVING</span>
 
                 </div>
 
-                <div class="hero-meta">
 
-                    <div>
-                        <span>01</span>
-                        FRONTEND
-                    </div>
+                <div class="hero-buttons">
 
-                    <div>
-                        <span>02</span>
-                        SOFTWARE
-                    </div>
+                    <a href="#projects" class="primary-button">
+                        Explore My Work
+                        <span>↓</span>
+                    </a>
 
-                    <div>
-                        <span>03</span>
-                        PROBLEM SOLVING
-                    </div>
+                    <a href="#about" class="secondary-button">
+                        More About Me
+                    </a>
 
                 </div>
 
             </div>
 
 
-            <!-- RIGHT PHOTO -->
+            <!-- HERO IMAGE -->
 
             <div class="hero-right">
 
                 <div class="photo-frame">
 
-                    <!-- CHANGE photo.jpg TO YOUR ACTUAL PHOTO FILE NAME -->
-
                     <img
-                        src="photo.jpg"
+                        src="profile.jpg"
                         alt="Kusheen Bhat"
                     >
 
-                    <div class="photo-label">
-                        <span>01 / 01</span>
-                        KUSHEEN BHAT
+                </div>
+
+
+                <div class="photo-label">
+
+                    <span>01</span>
+
+                    <div>
+                        <strong>BUILDING</strong>
+                        <small>WEB & SOFTWARE</small>
                     </div>
 
                 </div>
 
-                <div class="side-note">
-                    SCROLL<br>
-                    TO<br>
-                    EXPLORE
-                </div>
 
-                <div class="circle-decoration"></div>
+                <div class="scroll-hint">
+
+                    <span>SCROLL</span>
+
+                    <div class="scroll-arrow">
+                        ↓
+                    </div>
+
+                </div>
 
             </div>
 
         </section>
 
 
-        <!-- =========================
-             MARQUEE
-        ========================== -->
+        <!-- ================= MARQUEE ================= -->
 
-        <div class="marquee">
+        <section class="marquee">
 
             <div class="marquee-track">
 
-                <span>BUILD</span>
-                <i>✦</i>
-                <span>CREATE</span>
-                <i>✦</i>
-                <span>LEARN</span>
-                <i>✦</i>
-                <span>BREAK</span>
-                <i>✦</i>
-                <span>REBUILD</span>
-                <i>✦</i>
+                <span>COMPUTER SCIENCE</span>
+                <b>✦</b>
 
-                <span>BUILD</span>
-                <i>✦</i>
-                <span>CREATE</span>
-                <i>✦</i>
-                <span>LEARN</span>
-                <i>✦</i>
+                <span>FRONTEND DEVELOPMENT</span>
+                <b>✦</b>
+
+                <span>SOFTWARE ENGINEERING</span>
+                <b>✦</b>
+
+                <span>CREATIVE TECHNOLOGY</span>
+                <b>✦</b>
+
+                <span>PROBLEM SOLVING</span>
+                <b>✦</b>
+
+                <span>COMPUTER SCIENCE</span>
+                <b>✦</b>
 
             </div>
 
-        </div>
+        </section>
 
 
-        <!-- =========================
-             ABOUT
-        ========================== -->
+        <!-- ================= ABOUT ================= -->
 
         <section id="about" class="section about-section">
 
@@ -212,37 +216,58 @@
                 01 / ABOUT
             </div>
 
+
             <div class="about-grid">
 
-                <div>
+                <div class="section-title">
 
-                    <h3>
-                        Curious by default.
-                        <span>Builder by choice.</span>
-                    </h3>
+                    <p>WHO I AM</p>
+
+                    <h2>
+                        Curious mind.
+                        <span>Builder's mindset.</span>
+                    </h2>
 
                 </div>
 
-                <div class="about-copy">
+
+                <div class="about-content">
 
                     <p class="large-copy">
                         I'm a Computer Science Engineering student
-                        who enjoys building things that sit somewhere
-                        between <strong>technology, design and interaction.</strong>
+                        passionate about technology, web development
+                        and creating digital experiences that feel
+                        simple, useful and memorable.
                     </p>
 
                     <p>
-                        I like understanding how things work, breaking
-                        complicated problems into smaller pieces and
-                        then turning those ideas into clean, interactive
-                        digital experiences.
+                        I enjoy exploring new technologies, building
+                        projects from scratch and continuously
+                        improving my technical skills. My current
+                        interests include frontend development,
+                        programming fundamentals, problem solving
+                        and real-world software projects.
                     </p>
 
-                    <p>
-                        Currently looking for opportunities where I can
-                        learn fast, contribute to real products and grow
-                        as a software engineer.
-                    </p>
+
+                    <div class="about-stats">
+
+                        <div class="stat">
+                            <strong>2023</strong>
+                            <span>Started Engineering</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>2027</strong>
+                            <span>Expected Graduation</span>
+                        </div>
+
+                        <div class="stat">
+                            <strong>CSE</strong>
+                            <span>Engineering</span>
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -251,473 +276,608 @@
         </section>
 
 
-        <!-- =========================
-             SKILLS
-        ========================== -->
+        <!-- ================= EDUCATION ================= -->
 
-        <section id="skills" class="section skills-section">
+        <section id="education" class="section education-section">
 
             <div class="section-label">
-                02 / SKILLS
+                02 / EDUCATION
             </div>
+
 
             <div class="section-heading">
 
-                <h3>
-                    Things I
-                    <span>work with.</span>
-                </h3>
-
-                <p>
-                    A growing toolkit built through projects,
-                    coursework and curiosity.
-                </p>
-
-            </div>
-
-            <div class="skills-grid">
-
-                <div class="skill-card">
-
-                    <span class="skill-number">01</span>
-
-                    <h4>Frontend</h4>
-
-                    <p>
-                        Building responsive and interactive
-                        interfaces with a focus on usability.
-                    </p>
-
-                    <div class="skill-tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                    </div>
-
-                </div>
-
-
-                <div class="skill-card featured">
-
-                    <span class="skill-number">02</span>
-
-                    <h4>Programming</h4>
-
-                    <p>
-                        Solving problems, understanding algorithms
-                        and writing structured code.
-                    </p>
-
-                    <div class="skill-tags">
-                        <span>Java</span>
-                        <span>Python</span>
-                        <span>DSA</span>
-                    </div>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <span class="skill-number">03</span>
-
-                    <h4>Computer Science</h4>
-
-                    <p>
-                        Strong academic foundation across core
-                        computer science concepts.
-                    </p>
-
-                    <div class="skill-tags">
-                        <span>DBMS</span>
-                        <span>COA</span>
-                        <span>OOP</span>
-                    </div>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <span class="skill-number">04</span>
-
-                    <h4>Tools</h4>
-
-                    <p>
-                        Comfortable working with modern developer
-                        tools and collaborative workflows.
-                    </p>
-
-                    <div class="skill-tags">
-                        <span>Git</span>
-                        <span>GitHub</span>
-                        <span>VS Code</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             PROJECTS
-        ========================== -->
-
-        <section id="projects" class="section projects-section">
-
-            <div class="section-label">
-                03 / SELECTED WORK
-            </div>
-
-            <div class="section-heading project-heading">
-
-                <h3>
-                    Things I've
-                    <span>built.</span>
-                </h3>
-
-                <p>
-                    Small experiments today.
-                    Bigger products tomorrow.
-                </p>
-
-            </div>
-
-
-            <div class="projects-list">
-
-
-                <!-- PROJECT 01 -->
-
-                <article class="project">
-
-                    <div class="project-top">
-
-                        <span>01</span>
-
-                        <span>WEB / JAVASCRIPT</span>
-
-                    </div>
-
-                    <h4>
-                        Devora
-                    </h4>
-
-                    <p>
-                        An interactive developer dashboard designed
-                        to turn development activity into a visual,
-                        engaging experience.
-                    </p>
-
-                    <div class="project-bottom">
-
-                        <div class="project-tech">
-                            HTML · CSS · JavaScript
-                        </div>
-
-                        <a
-                            href="https://github.com/kusheenbhat05-wq"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            View GitHub ↗
-                        </a>
-
-                    </div>
-
-                </article>
-
-
-                <!-- PROJECT 02 -->
-
-                <article class="project accent-project">
-
-                    <div class="project-top">
-
-                        <span>02</span>
-
-                        <span>INTERACTIVE WEB</span>
-
-                    </div>
-
-                    <h4>
-                        Interactive Celebration
-                    </h4>
-
-                    <p>
-                        A creative interactive website combining
-                        animation, storytelling and playful user
-                        interactions.
-                    </p>
-
-                    <div class="project-bottom">
-
-                        <div class="project-tech">
-                            HTML · CSS · JavaScript
-                        </div>
-
-                        <a href="#contact">
-                            Case study ↗
-                        </a>
-
-                    </div>
-
-                </article>
-
-
-                <!-- PROJECT 03 -->
-
-                <article class="project">
-
-                    <div class="project-top">
-
-                        <span>03</span>
-
-                        <span>CREATIVE TECHNOLOGY</span>
-
-                    </div>
-
-                    <h4>
-                        Digital Twin
-                    </h4>
-
-                    <p>
-                        A concept dashboard exploring real-time
-                        digital interfaces, visual data and
-                        interactive system controls.
-                    </p>
-
-                    <div class="project-bottom">
-
-                        <div class="project-tech">
-                            JavaScript · UI · Interaction
-                        </div>
-
-                        <a href="#contact">
-                            Coming next ↗
-                        </a>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             JOURNEY
-        ========================== -->
-
-        <section id="journey" class="section journey-section">
-
-            <div class="section-label">
-                04 / JOURNEY
-            </div>
-
-            <div class="section-heading">
-
-                <h3>
-                    Still learning.
-                    <span>Still building.</span>
-                </h3>
+                <p>ACADEMIC JOURNEY</p>
+
+                <h2>
+                    Where I
+                    <span>started.</span>
+                </h2>
 
             </div>
 
 
             <div class="timeline">
 
-                <div class="timeline-item">
+                <article class="timeline-item">
 
                     <div class="timeline-year">
-                        2023
+                        2023 — 2027
+                    </div>
+
+                    <div class="timeline-marker">
+                        01
                     </div>
 
                     <div class="timeline-content">
 
-                        <span>STARTING POINT</span>
+                        <span>UNDERGRADUATE</span>
+
+                        <h3>
+                            Bachelor of Technology
+                        </h3>
 
                         <h4>
-                            B.Tech — Computer Science Engineering
+                            Computer Science & Engineering
                         </h4>
 
                         <p>
-                            Started my engineering journey and began
-                            exploring programming, computer science
-                            fundamentals and problem solving.
+                            Govind Ballabh Pant Institute of
+                            Engineering and Technology
                         </p>
+
+                        <small>
+                            Uttarakhand, India
+                        </small>
 
                     </div>
 
-                </div>
+                </article>
 
 
-                <div class="timeline-item">
+                <article class="timeline-item">
 
                     <div class="timeline-year">
-                        2024
+                        12TH
+                    </div>
+
+                    <div class="timeline-marker">
+                        02
                     </div>
 
                     <div class="timeline-content">
 
-                        <span>EXPLORING</span>
+                        <span>HIGHER SECONDARY</span>
+
+                        <h3>
+                            Higher Secondary Education
+                        </h3>
 
                         <h4>
-                            Building beyond coursework
+                            Vishwa Bharti Public Higher
+                            Secondary School
                         </h4>
 
                         <p>
-                            Started experimenting with web development,
-                            JavaScript and personal projects.
+                            Senior Secondary Education
                         </p>
 
                     </div>
 
-                </div>
+                </article>
 
 
-                <div class="timeline-item">
+                <article class="timeline-item">
 
                     <div class="timeline-year">
-                        2025
+                        10TH
+                    </div>
+
+                    <div class="timeline-marker">
+                        03
                     </div>
 
                     <div class="timeline-content">
 
-                        <span>BUILDING</span>
+                        <span>SECONDARY EDUCATION</span>
+
+                        <h3>
+                            Matriculation
+                        </h3>
 
                         <h4>
-                            Projects → Portfolio → Real Work
+                            Vishwa Bharti Public Higher
+                            Secondary School
                         </h4>
 
                         <p>
-                            Turning ideas into complete projects and
-                            developing a stronger software engineering
-                            foundation.
+                            Secondary Education
                         </p>
 
                     </div>
 
-                </div>
-
-
-                <div class="timeline-item current">
-
-                    <div class="timeline-year">
-                        NOW
-                    </div>
-
-                    <div class="timeline-content">
-
-                        <span>OPEN FOR OPPORTUNITIES</span>
-
-                        <h4>
-                            Looking for an internship
-                        </h4>
-
-                        <p>
-                            Open to Frontend Development,
-                            Software Engineering and related
-                            internship opportunities.
-                        </p>
-
-                    </div>
-
-                </div>
+                </article>
 
             </div>
 
         </section>
 
 
-        <!-- =========================
-             WHAT I BUILD
-        ========================== -->
+        <!-- ================= EXPERIENCE ================= -->
 
-        <section class="statement-section">
-
-            <p>
-                I don't just want to
-                <span>write code.</span>
-            </p>
-
-            <p>
-                I want to build
-                <strong>things people remember.</strong>
-            </p>
-
-        </section>
-
-
-        <!-- =========================
-             CONTACT
-        ========================== -->
-
-        <section id="contact" class="section contact-section">
+        <section id="experience" class="section experience-section">
 
             <div class="section-label">
-                05 / CONTACT
+                03 / EXPERIENCE
             </div>
 
-            <div class="contact-heading">
 
-                <span>HAVE A PROJECT?</span>
+            <div class="section-heading">
 
-                <h3>
-                    Let's build
-                    <em>something.</em>
-                </h3>
+                <p>WHAT I'VE WORKED ON</p>
+
+                <h2>
+                    Experience that
+                    <span>matters.</span>
+                </h2>
 
             </div>
 
-            <div class="contact-grid">
 
-                <div class="contact-intro">
+            <div class="experience-list">
 
-                    <p>
-                        I'm currently open to internship
-                        opportunities in frontend development
-                        and software engineering.
+                <article class="experience-card">
+
+                    <div class="experience-number">
+                        01
+                    </div>
+
+                    <div class="experience-main">
+
+                        <div class="experience-top">
+
+                            <span class="experience-tag">
+                                INTERNSHIP
+                            </span>
+
+                            <span class="experience-date">
+                                MAY 2025 — JULY 2025
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Frontend Developer Intern
+                        </h3>
+
+                        <h4>
+                            Mapsily Technologies Pvt. Ltd.
+                        </h4>
+
+                        <p>
+                            Worked on responsive web interfaces
+                            and frontend development using modern
+                            web technologies. Contributed to UI/UX,
+                            responsive components and interactive
+                            web experiences.
+                        </p>
+
+
+                        <div class="tech-list">
+
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>React.js</span>
+                            <span>UI/UX</span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="experience-card">
+
+                    <div class="experience-number">
+                        02
+                    </div>
+
+                    <div class="experience-main">
+
+                        <div class="experience-top">
+
+                            <span class="experience-tag">
+                                LEADERSHIP
+                            </span>
+
+                            <span class="experience-date">
+                                CAMPUS
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            Campus Ambassador
+                        </h3>
+
+                        <h4>
+                            Alpha Innovation
+                        </h4>
+
+                        <p>
+                            Represented the organization as a
+                            campus ambassador, participating in
+                            outreach activities, student engagement
+                            and technology-focused initiatives.
+                        </p>
+
+                        <div class="tech-list">
+
+                            <span>COMMUNICATION</span>
+                            <span>OUTREACH</span>
+                            <span>LEADERSHIP</span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section id="skills" class="section skills-section">
+
+            <div class="section-label">
+                04 / SKILLS
+            </div>
+
+
+            <div class="skills-layout">
+
+                <div class="skills-intro">
+
+                    <p>MY TOOLKIT</p>
+
+                    <h2>
+                        Things I
+                        <span>work with.</span>
+                    </h2>
+
+                    <p class="skills-description">
+                        A growing toolkit built through coursework,
+                        experimentation and hands-on projects.
                     </p>
 
-                    <a
-                        href="mailto:kusheenbhat05@gmail.com"
-                        class="email-link"
-                    >
-                        kusheenbhat05@gmail.com ↗
-                    </a>
+                </div>
+
+
+                <div class="skills-list">
+
+                    <div class="skill-row">
+                        <span>01</span>
+                        <h3>HTML & CSS</h3>
+                        <small>FRONTEND</small>
+                    </div>
+
+                    <div class="skill-row">
+                        <span>02</span>
+                        <h3>JavaScript</h3>
+                        <small>PROGRAMMING</small>
+                    </div>
+
+                    <div class="skill-row">
+                        <span>03</span>
+                        <h3>React.js</h3>
+                        <small>FRONTEND</small>
+                    </div>
+
+                    <div class="skill-row">
+                        <span>04</span>
+                        <h3>Java</h3>
+                        <small>PROGRAMMING</small>
+                    </div>
+
+                    <div class="skill-row">
+                        <span>05</span>
+                        <h3>Python</h3>
+                        <small>PROGRAMMING</small>
+                    </div>
+
+                    <div class="skill-row">
+                        <span>06</span>
+                        <h3>SQL & DBMS</h3>
+                        <small>DATABASE</small>
+                    </div>
+
+                    <div class="skill-row">
+                        <span>07</span>
+                        <h3>Git & GitHub</h3>
+                        <small>VERSION CONTROL</small>
+                    </div>
+
+                    <div class="skill-row">
+                        <span>08</span>
+                        <h3>DSA</h3>
+                        <small>PROBLEM SOLVING</small>
+                    </div>
 
                 </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROJECTS ================= -->
+
+        <section id="projects" class="section projects-section">
+
+            <div class="section-label">
+                05 / PROJECTS
+            </div>
+
+
+            <div class="section-heading">
+
+                <p>SELECTED WORK</p>
+
+                <h2>
+                    Things I've
+                    <span>built.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+
+                <article class="project-card featured">
+
+                    <div class="project-top">
+                        <span>01</span>
+                        <span>WEB DEVELOPMENT</span>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Interactive Celebration Website
+                        </h3>
+
+                        <p>
+                            An interactive web experience built
+                            with animations, creative layouts and
+                            JavaScript interactions.
+                        </p>
+
+                    </div>
+
+                    <div class="project-bottom">
+
+                        <span>
+                            HTML · CSS · JavaScript
+                        </span>
+
+                        <b>↗</b>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project-card">
+
+                    <div class="project-top">
+                        <span>02</span>
+                        <span>WEB APPLICATION</span>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Devora Developer Dashboard
+                        </h3>
+
+                        <p>
+                            A modern interactive dashboard concept
+                            focused on developer workflows,
+                            visual data and responsive UI.
+                        </p>
+
+                    </div>
+
+                    <div class="project-bottom">
+
+                        <span>
+                            HTML · CSS · JavaScript
+                        </span>
+
+                        <b>↗</b>
+
+                    </div>
+
+                </article>
+
+
+                <article class="project-card">
+
+                    <div class="project-top">
+                        <span>03</span>
+                        <span>EXPERIMENTAL</span>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Digital Twin Dashboard
+                        </h3>
+
+                        <p>
+                            An experimental interactive interface
+                            exploring real-time digital information,
+                            visual components and user interaction.
+                        </p>
+
+                    </div>
+
+                    <div class="project-bottom">
+
+                        <span>
+                            JavaScript · Interactive UI
+                        </span>
+
+                        <b>↗</b>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BEYOND CODE ================= -->
+
+        <section class="section beyond-section">
+
+            <div class="section-label">
+                06 / BEYOND CODE
+            </div>
+
+
+            <div class="beyond-grid">
+
+                <div class="section-title">
+
+                    <p>MORE THAN JUST CODE</p>
+
+                    <h2>
+                        Always
+                        <span>exploring.</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="beyond-list">
+
+                    <div class="beyond-item">
+
+                        <span>01</span>
+
+                        <div>
+                            <h3>Frontend Development</h3>
+                            <p>
+                                Building responsive and interactive
+                                interfaces.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="beyond-item">
+
+                        <span>02</span>
+
+                        <div>
+                            <h3>Problem Solving</h3>
+                            <p>
+                                Learning through DSA, programming
+                                and hands-on challenges.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="beyond-item">
+
+                        <span>03</span>
+
+                        <div>
+                            <h3>Continuous Learning</h3>
+                            <p>
+                                Exploring technologies beyond the
+                                classroom.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section id="contact" class="contact-section">
+
+            <div class="contact-bg">
+                LET'S BUILD
+            </div>
+
+
+            <div class="contact-content">
+
+                <p>
+                    HAVE AN OPPORTUNITY?
+                </p>
+
+                <h2>
+                    Let's build
+                    <br>
+                    something
+                    <span>great.</span>
+                </h2>
+
+                <div class="contact-status">
+                    <span></span>
+                    OPEN FOR INTERNSHIPS & COLLABORATIONS
+                </div>
+
+                <a
+                    href="mailto:kusheenbhat05@gmail.com"
+                    class="email-link"
+                >
+                    kusheenbhat05@gmail.com
+                    <span>↗</span>
+                </a>
 
 
                 <div class="contact-links">
 
                     <a
-                        href="https://github.com/kusheenbhat05-wq"
+                        href="https://www.linkedin.com/in/kusheen-bhat-ab72a4303/"
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener"
                     >
-                        <span>GitHub</span>
-                        <strong>↗</strong>
+                        LinkedIn ↗
                     </a>
-
-                    <!-- PUT YOUR REAL LINKEDIN URL HERE -->
 
                     <a
-                        href="https://www.linkedin.com/"
+                        href="https://github.com/kusheenbhat05-wq"
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener"
                     >
-                        <span>LinkedIn</span>
-                        <strong>↗</strong>
+                        GitHub ↗
                     </a>
 
-                    <a href="tel:+919682178461">
-                        <span>96821 78461</span>
-                        <strong>↗</strong>
+                    <a href="tel:9682178461">
+                        9682178461
                     </a>
 
                 </div>
@@ -729,23 +889,21 @@
     </main>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <!-- ================= FOOTER ================= -->
 
     <footer>
 
-        <div>
-            KUSHEEN BHAT <span>©</span>
-        </div>
+        <span>
+            © 2026 Kusheen Bhat
+        </span>
 
-        <div>
-            BUILT WITH CURIOSITY · 2026
-        </div>
+        <span>
+            CSE · 2027
+        </span>
 
-        <div>
-            JAMMU, INDIA
-        </div>
+        <span>
+            DESIGNED & BUILT WITH CURIOSITY.
+        </span>
 
     </footer>
 
@@ -753,4 +911,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
