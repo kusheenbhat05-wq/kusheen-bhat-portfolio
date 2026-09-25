@@ -1357,15 +1357,23 @@ body.loaded #loader {
 
     display: grid;
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-    gap: 20px;
+    gap: 32px;
 
     margin-top: 80px;
+
+    width: 100%;
+
+    align-items: stretch;
 }
 
+
 .project-card {
+
+    width: 100%;
+
+    min-width: 0;
 
     min-height: 420px;
 
@@ -1387,11 +1395,14 @@ body.loaded #loader {
         background .35s ease;
 }
 
+
+/* NO PROJECT TAKES A FULL ROW */
+
 .project-card.featured {
 
-    grid-column: span 2;
+    grid-column: auto;
 
-    min-height: 470px;
+    min-height: 420px;
 
     background:
         radial-gradient(
@@ -1402,6 +1413,7 @@ body.loaded #loader {
         var(--card);
 }
 
+
 .project-card:hover {
 
     transform: translateY(-8px);
@@ -1409,6 +1421,7 @@ body.loaded #loader {
     border-color:
         rgba(168,255,62,.45);
 }
+
 
 .project-top,
 .project-bottom {
@@ -1422,6 +1435,7 @@ body.loaded #loader {
     gap: 20px;
 }
 
+
 .project-top span {
 
     font-family: var(--mono);
@@ -1433,25 +1447,28 @@ body.loaded #loader {
     letter-spacing: .08em;
 }
 
+
 .project-top span:first-child {
 
     color: var(--green);
 }
 
+
 .project-card h3 {
 
     font-size: clamp(
-        2rem,
-        4vw,
-        4.2rem
+        1.7rem,
+        3vw,
+        3rem
     );
 
-    letter-spacing: -.07em;
+    letter-spacing: -.05em;
 
-    line-height: .95;
+    line-height: 1;
 
     max-width: 850px;
 }
+
 
 .project-card p {
 
@@ -1464,6 +1481,7 @@ body.loaded #loader {
     line-height: 1.7;
 }
 
+
 .project-bottom {
 
     padding-top: 25px;
@@ -1472,6 +1490,7 @@ body.loaded #loader {
 
     margin-top: 40px;
 }
+
 
 .project-bottom span {
 
@@ -1482,9 +1501,11 @@ body.loaded #loader {
     font-size: .6rem;
 }
 
+
 .project-bottom b {
 
     width: 42px;
+
     height: 42px;
 
     display: flex;
@@ -1502,6 +1523,7 @@ body.loaded #loader {
     transition: .3s ease;
 }
 
+
 .project-card:hover .project-bottom b {
 
     background: var(--green);
@@ -1511,6 +1533,34 @@ body.loaded #loader {
     border-color: var(--green);
 }
 
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .projects-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 24px;
+
+        margin-top: 50px;
+    }
+
+    .project-card {
+
+        min-height: 380px;
+
+        padding: 24px;
+    }
+
+    .project-card.featured {
+
+        grid-column: auto;
+
+    }
+
+}
 
 /* =========================================================
    BEYOND
